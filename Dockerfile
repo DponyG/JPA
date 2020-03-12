@@ -1,2 +1,2 @@
 FROM airhacks/glassfish
-COPY ./target/payroll.war ${DEPLOYMENT_DIR}
+COPY ./target/penguinCompany.war ${DEPLOYMENT_DIR}

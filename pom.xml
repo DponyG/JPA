@@ -2,35 +2,93 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.pedantic</groupId>
-	<artifactId>payroll</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<groupId>com.radPenguins</groupId>
+	<artifactId>penguinCompany</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.arquillian</groupId>
+				<artifactId>arquillian-universe</artifactId>
+				<version>1.0.0.Alpha1</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
-
+		<!-- https://mvnrepository.com/artifact/org.apache.tomee/javaee-api -->
 		<dependency>
-			<groupId>javax</groupId>
+			<groupId>org.apache.tomee</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>8.0</version>
+			<version>8.0-1</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+		<!-- https://mvnrepository.com/artifact/org.apache.tomee/openejb-core -->
 		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derby</artifactId>
-			<version>10.12.1.1</version>
+			<groupId>org.apache.tomee</groupId>
+			<artifactId>openejb-core</artifactId>
+			<version>8.0.0-M1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.19</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.microprofile</groupId>
+			<artifactId>microprofile</artifactId>
+			<version>2.0.1</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/eclipselink -->
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.7.6</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/eclipselink -->
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.derby/derbyclient -->
 		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derbyclient</artifactId>
-			<version>10.14.2.0</version>
+			<groupId>org.arquillian.universe</groupId>
+			<artifactId>arquillian-persistence</artifactId>
+			<scope>test</scope>
+			<type>pom</type>
 		</dependency>
-
+		<dependency>
+			<groupId>org.arquillian.universe</groupId>
+			<artifactId>arquillian-transaction-jta</artifactId>
+			<scope>test</scope>
+			<type>pom</type>
+			<exclusions>
+				<exclusion>
+					<groupId>org.jboss.arquillian.extension</groupId>
+					<artifactId>arquillian-transaction-jta</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.tomee/arquillian-tomee-embedded -->
+		<dependency>
+			<groupId>org.apache.tomee</groupId>
+			<artifactId>arquillian-tomee-embedded</artifactId>
+			<version>8.0.0-M1</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
-		<finalName>payroll</finalName>
+		<finalName>penguinCompany</finalName>
 	</build>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>

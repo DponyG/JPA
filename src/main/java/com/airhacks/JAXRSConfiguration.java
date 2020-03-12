@@ -1,4 +1,4 @@
-package com.pedantic.config;
+package com.airhacks;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
